@@ -1,496 +1,217 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="km">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#080b14">
-    <meta name="description"
-          content="Explore gaming design, Roblox-inspired portfolios, thumbnails, and creative services for game developers.">
-
-    <title>Nova Gaming | Creative Portfolio</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Main JavaScript -->
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b14">
+  <title>E-KENZO Store | Roblox Gaming Services</title>
+  <meta name="description" content="E-KENZO Store - Roblox creative services, gaming graphics and portfolio design.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
+  <header class="site-header">
+    <a class="brand" href="#home">
+      <span class="brand-icon">EK</span>
+      <span>E-KENZO <span class="accent">STORE</span></span>
+    </a>
 
-    <!-- Background Effects -->
-    <div class="background-effects" aria-hidden="true">
-        <div class="glow glow-one"></div>
-        <div class="glow glow-two"></div>
-        <div class="grid-overlay"></div>
+    <div class="header-actions">
+      <button id="languageBtn" class="language-btn" type="button"
+        aria-label="Switch language">EN</button>
+      <button id="menuBtn" class="menu-btn" type="button"
+        aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
 
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container navbar">
+    <nav id="navMenu" class="nav-menu">
+      <a href="#home" data-i18n="navHome">ទំព័រដើម</a>
+      <a href="#services" data-i18n="navServices">សេវាកម្ម</a>
+      <a href="#robux" data-i18n="navRobux">ព័ត៌មាន Robux</a>
+      <a href="#gallery" data-i18n="navGallery">រូបភាព</a>
+      <a href="#contact" data-i18n="navContact">ទាក់ទងយើង</a>
+    </nav>
+  </header>
 
-            <a href="#home" class="logo" aria-label="Nova Gaming home">
-                <span class="logo-icon">N</span>
-                <span class="logo-text">NOVA<span>GAMING</span></span>
-            </a>
-
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="navMenu">
-
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#portfolio" class="nav-link">Portfolio</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link nav-contact">Contact Us</a>
-            </nav>
-
+  <main>
+    <section id="home" class="hero section-wrap">
+      <div class="hero-content">
+        <span class="eyebrow" data-i18n="heroEyebrow">
+          YOUR GAMING • YOUR STYLE
+        </span>
+        <h1 data-i18n="heroTitle">
+          ស្វាគមន៍មកកាន់ <span class="accent">E-KENZO STORE</span>
+        </h1>
+        <p data-i18n="heroText">
+          សេវាកម្មរចនារូបភាព Gaming, Branding និង Portfolio
+          សម្រាប់អ្នកចូលចិត្ត Roblox។
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#services" data-i18n="exploreBtn">
+            មើលកញ្ចប់សេវាកម្ម
+          </a>
+          <a class="btn btn-outline" href="https://www.roblox.com/upgrades/robux"
+            target="_blank" rel="noopener noreferrer" data-i18n="officialBtn">
+            Roblox ផ្លូវការ
+          </a>
         </div>
-    </header>
-
-
-    <!-- Main Content -->
-    <main>
-
-        <!-- Hero Section -->
-        <section class="hero section" id="home">
-            <div class="container hero-layout">
-
-                <div class="hero-content">
-
-                    <div class="hero-badge">
-                        <span class="status-dot"></span>
-                        CREATIVE GAMING SERVICES
-                    </div>
-
-                    <h1>
-                        LEVEL UP YOUR
-                        <span class="gradient-text">GAME WORLD</span>
-                    </h1>
-
-                    <p class="hero-description">
-                        Creative design and digital services for gaming
-                        communities, Roblox-inspired projects, and game
-                        developers. Turn your ideas into something amazing.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary">
-                            Explore Portfolio
-                            <span aria-hidden="true">↗</span>
-                        </a>
-
-                        <a href="#services" class="btn btn-secondary">
-                            Our Services
-                        </a>
-                    </div>
-
-                    <div class="hero-features">
-                        <div class="feature-item">
-                            <span class="feature-icon">✦</span>
-                            <span>Creative Design</span>
-                        </div>
-
-                        <div class="feature-item">
-                            <span class="feature-icon">◈</span>
-                            <span>Gaming Focused</span>
-                        </div>
-
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <span>Custom Projects</span>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <!-- Hero Visual -->
-                <div class="hero-visual">
-
-                    <div class="visual-glow"></div>
-
-                    <div class="hero-card">
-
-                        <div class="card-top">
-                            <span class="card-label">CREATIVE STUDIO</span>
-                            <span class="card-indicator">● ONLINE</span>
-                        </div>
-
-                        <div class="hero-art">
-                            <div class="art-ring ring-one"></div>
-                            <div class="art-ring ring-two"></div>
-
-                            <div class="art-symbol">
-                                N
-                            </div>
-
-                            <div class="floating-tag tag-top">
-                                <span>✦</span> DESIGN
-                            </div>
-
-                            <div class="floating-tag tag-bottom">
-                                GAME <span>+</span> CREATIVITY
-                            </div>
-                        </div>
-
-                        <div class="card-bottom">
-                            <div>
-                                <span class="small-label">YOUR NEXT PROJECT</span>
-                                <h3>STARTS HERE.</h3>
-                            </div>
-
-                            <a href="#contact"
-                               class="card-arrow"
-                               aria-label="Contact us">
-                                ↗
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div class="floating-square square-one"></div>
-                    <div class="floating-square square-two"></div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- Services Section -->
-        <section class="services section" id="services">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="section-eyebrow">WHAT WE DO</span>
-
-                    <h2>
-                        OUR <span class="gradient-text">SERVICES</span>
-                    </h2>
-
-                    <p>
-                        Creative digital solutions designed for gaming
-                        creators and online communities.
-                    </p>
-                </div>
-
-
-                <div class="services-grid">
-
-                    <article class="service-card">
-                        <div class="service-icon">◈</div>
-
-                        <span class="service-number">01</span>
-
-                        <h3>Gaming Graphics</h3>
-
-                        <p>
-                            Custom thumbnails, banners, profile graphics,
-                            and visual assets for gaming content.
-                        </p>
-
-                        <a href="#contact" class="text-link">
-                            Learn More <span>→</span>
-                        </a>
-                    </article>
-
-
-                    <article class="service-card">
-                        <div class="service-icon">⌘</div>
-
-                        <span class="service-number">02</span>
-
-                        <h3>Portfolio Websites</h3>
-
-                        <p>
-                            Modern portfolio websites for creators,
-                            developers, and gaming communities.
-                        </p>
-
-                        <a href="#contact" class="text-link">
-                            Learn More <span>→</span>
-                        </a>
-                    </article>
-
-
-                    <article class="service-card">
-                        <div class="service-icon">✧</div>
-
-                        <span class="service-number">03</span>
-
-                        <h3>Avatar & Branding</h3>
-
-                        <p>
-                            Creative profile concepts, personal branding,
-                            and original gaming-inspired artwork.
-                        </p>
-
-                        <a href="#contact" class="text-link">
-                            Learn More <span>→</span>
-                        </a>
-                    </article>
-
-
-                    <article class="service-card">
-                        <div class="service-icon">⚡</div>
-
-                        <span class="service-number">04</span>
-
-                        <h3>Game Creator Support</h3>
-
-                        <p>
-                            Visual presentation, project showcases,
-                            and digital resources for game creators.
-                        </p>
-
-                        <a href="#contact" class="text-link">
-                            Learn More <span>→</span>
-                        </a>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- Portfolio Section -->
-        <section class="portfolio section" id="portfolio">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="section-eyebrow">OUR CREATIVE WORK</span>
-
-                    <h2>
-                        FEATURED <span class="gradient-text">PROJECTS</span>
-                    </h2>
-
-                    <p>
-                        A showcase of design concepts and creative ideas.
-                    </p>
-                </div>
-
-
-                <div class="portfolio-grid">
-
-                    <article class="portfolio-card">
-                        <div class="portfolio-image project-one">
-                            <span class="project-placeholder">PROJECT 01</span>
-                            <span class="project-category">GRAPHIC DESIGN</span>
-                        </div>
-
-                        <div class="portfolio-info">
-                            <div>
-                                <h3>Gaming Thumbnail</h3>
-                                <p>Gaming visual concept</p>
-                            </div>
-
-                            <a href="#contact"
-                               class="project-link"
-                               aria-label="Ask about Gaming Thumbnail">
-                                ↗
-                            </a>
-                        </div>
-                    </article>
-
-
-                    <article class="portfolio-card">
-                        <div class="portfolio-image project-two">
-                            <span class="project-placeholder">PROJECT 02</span>
-                            <span class="project-category">WEB DESIGN</span>
-                        </div>
-
-                        <div class="portfolio-info">
-                            <div>
-                                <h3>Creator Portfolio</h3>
-                                <p>Website design concept</p>
-                            </div>
-
-                            <a href="#contact"
-                               class="project-link"
-                               aria-label="Ask about Creator Portfolio">
-                                ↗
-                            </a>
-                        </div>
-                    </article>
-
-
-                    <article class="portfolio-card">
-                        <div class="portfolio-image project-three">
-                            <span class="project-placeholder">PROJECT 03</span>
-                            <span class="project-category">BRANDING</span>
-                        </div>
-
-                        <div class="portfolio-info">
-                            <div>
-                                <h3>Gaming Identity</h3>
-                                <p>Branding concept</p>
-                            </div>
-
-                            <a href="#contact"
-                               class="project-link"
-                               aria-label="Ask about Gaming Identity">
-                                ↗
-                            </a>
-                        </div>
-                    </article>
-
-                </div>
-
-                <p class="portfolio-note">
-                    Demo concepts are placeholders. Replace them with
-                    your own original work before advertising your services.
-                </p>
-
-            </div>
-        </section>
-
-
-        <!-- About Section -->
-        <section class="about section" id="about">
-            <div class="container about-layout">
-
-                <div class="about-visual">
-                    <div class="about-graphic">
-                        <span class="about-symbol">N</span>
-                        <span class="about-caption">CREATE YOUR NEXT LEVEL</span>
-                    </div>
-                </div>
-
-                <div class="about-content">
-
-                    <span class="section-eyebrow">ABOUT OUR STUDIO</span>
-
-                    <h2>
-                        BUILT FOR
-                        <span class="gradient-text">CREATORS</span>
-                    </h2>
-
-                    <p>
-                        Nova Gaming is a creative portfolio concept focused
-                        on digital design and services for gaming creators.
-                        Our goal is to help creators present their projects
-                        with a professional look.
-                    </p>
-
-                    <p>
-                        We focus on original creative work, transparent
-                        communication, and straightforward service options.
-                    </p>
-
-                    <div class="about-points">
-                        <div>
-                            <span class="check-icon">✓</span>
-                            Original creative concepts
-                        </div>
-
-                        <div>
-                            <span class="check-icon">✓</span>
-                            Clear service descriptions
-                        </div>
-
-                        <div>
-                            <span class="check-icon">✓</span>
-                            No account password collection
-                        </div>
-                    </div>
-
-                    <a href="#contact" class="btn btn-primary">
-                        Work With Us <span>↗</span>
-                    </a>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- Contact Section -->
-        <section class="contact section" id="contact">
-            <div class="container">
-
-                <div class="contact-box">
-
-                    <span class="section-eyebrow">LET'S CONNECT</span>
-
-                    <h2>
-                        HAVE A PROJECT
-                        <span class="gradient-text">IN MIND?</span>
-                    </h2>
-
-                    <p>
-                        Tell us about your idea and the creative service
-                        you need. Let's discuss your next project.
-                    </p>
-
-                    <a href="mailto:your-email@example.com"
-                       class="btn btn-primary"
-                       id="contactEmail">
-                        Contact Our Studio <span>↗</span>
-                    </a>
-
-                    <p class="contact-note">
-                        Replace the example email address with your
-                        real business contact before publishing.
-                    </p>
-
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container footer-content">
-
-            <a href="#home" class="logo footer-logo">
-                <span class="logo-icon">N</span>
-                <span class="logo-text">NOVA<span>GAMING</span></span>
-            </a>
-
-            <p>
-                © <span id="currentYear">2026</span> Nova Gaming.
-                All rights reserved.
-            </p>
-
-            <a href="#home" class="back-to-top">
-                Back to top ↑
-            </a>
-
+        <p class="small-note" data-i18n="heroNote">
+          សេវាកម្មរចនាឯករាជ្យ មិនមែនជាហាងផ្លូវការរបស់ Roblox ទេ។
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="hero-logo">E-KENZO</div>
+        <div class="hero-card-line"></div>
+        <p>GAMING · DESIGN · CREATIVE</p>
+        <span class="hero-tag">LEVEL UP YOUR BRAND</span>
+      </div>
+    </section>
+
+    <section id="services" class="section-wrap section-block">
+      <div class="section-heading">
+        <span class="eyebrow" data-i18n="servicesEyebrow">WHAT WE OFFER</span>
+        <h2 data-i18n="servicesTitle">ជ្រើសរើសកញ្ចប់សេវាកម្ម</h2>
+        <p data-i18n="servicesText">
+          ចុចលើកញ្ចប់មួយដើម្បីជ្រើសរើស រួចទាក់ទងយើងតាម Telegram។
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3 data-i18n="service1Title">Gaming Graphics</h3>
+          <p data-i18n="service1Text">
+            រចនារូបភាព Gaming, Banner និង Thumbnail។
+          </p>
+          <div class="service-meta" data-i18n="service1Meta">សេវាកម្មរចនារូបភាព</div>
+          <button class="btn btn-outline select-package" type="button"
+            data-package="Gaming Graphics" data-i18n="chooseBtn">
+            ជ្រើសរើស
+          </button>
+        </article>
+
+        <article class="service-card featured">
+          <span class="popular-label" data-i18n="featuredLabel">ពេញនិយម</span>
+          <div class="service-icon">🌐</div>
+          <h3 data-i18n="service2Title">Portfolio Website</h3>
+          <p data-i18n="service2Text">
+            គេហទំព័របង្ហាញស្នាដៃ និងសេវាកម្មរបស់អ្នក។
+          </p>
+          <div class="service-meta" data-i18n="service2Meta">រចនាគេហទំព័រ</div>
+          <button class="btn btn-primary select-package" type="button"
+            data-package="Portfolio Website" data-i18n="chooseBtn">
+            ជ្រើសរើស
+          </button>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">👾</div>
+          <h3 data-i18n="service3Title">Avatar & Branding</h3>
+          <p data-i18n="service3Text">
+            រចនារូបសញ្ញា និងរូបភាពសម្រាប់ Profile។
+          </p>
+          <div class="service-meta" data-i18n="service3Meta">Branding និង Profile</div>
+          <button class="btn btn-outline select-package" type="button"
+            data-package="Avatar & Branding" data-i18n="chooseBtn">
+            ជ្រើសរើស
+          </button>
+        </article>
+      </div>
+
+      <div id="selectionBox" class="selection-box" hidden>
+        <div>
+          <span class="eyebrow" data-i18n="selectedLabel">កញ្ចប់ដែលបានជ្រើសរើស</span>
+          <h3 id="selectedPackage">—</h3>
+          <p data-i18n="contactToDiscuss">
+            ទាក់ទងយើងដើម្បីពិភាក្សាពីតម្លៃ និងព័ត៌មានលម្អិត។
+          </p>
         </div>
+        <a id="orderTelegram" class="btn btn-primary"
+          href="https://t.me/EkenZoshop" target="_blank"
+          rel="noopener noreferrer" data-i18n="contactBtn">
+          ទាក់ទងតាម Telegram
+        </a>
+      </div>
+    </section>
 
-        <div class="container">
-            <p class="legal-note">
-                Independent creative portfolio. Not affiliated with,
-                endorsed by, or sponsored by Roblox Corporation.
-                No Robux sales or third-party Robux distribution.
-            </p>
+    <section id="robux" class="section-wrap section-block">
+      <div class="official-panel">
+        <div class="official-symbol">Ⓡ</div>
+        <div class="official-content">
+          <span class="eyebrow" data-i18n="officialEyebrow">OFFICIAL INFORMATION</span>
+          <h2 data-i18n="robuxTitle">ព័ត៌មាន Robux ផ្លូវការ</h2>
+          <p data-i18n="robuxText">
+            ចង់ពិនិត្យជម្រើស Robux? សូមចូលទៅកាន់គេហទំព័រ Roblox ផ្លូវការ។
+            តម្លៃ និងជម្រើសអាចខុសគ្នាតាមប្រទេស និងគណនី។
+          </p>
+          <a class="btn btn-primary"
+            href="https://www.roblox.com/upgrades/robux"
+            target="_blank" rel="noopener noreferrer"
+            data-i18n="robuxLink">មើលជម្រើស Robux ផ្លូវការ ↗</a>
         </div>
-    </footer>
+      </div>
+    </section>
 
+    <section id="gallery" class="section-wrap section-block">
+      <div class="section-heading">
+        <span class="eyebrow" data-i18n="galleryEyebrow">YOUR SHOWCASE</span>
+        <h2 data-i18n="galleryTitle">រូបភាព និងស្នាដៃ</h2>
+        <p data-i18n="galleryText">
+          ជ្រើសរើសរូបពីទូរស័ព្ទដើម្បីមើលជាមុន។
+        </p>
+      </div>
+
+      <div class="upload-panel">
+        <label for="imageUpload" class="upload-label">
+          <span class="upload-symbol">＋</span>
+          <strong data-i18n="uploadTitle">ជ្រើសរើសរូបភាពពីទូរស័ព្ទ</strong>
+          <span data-i18n="uploadHint">JPG, PNG ឬ WebP</span>
+        </label>
+        <input id="imageUpload" type="file" accept="image/*" multiple>
+        <p class="small-note" data-i18n="uploadNote">
+          រូបភាពនេះបង្ហាញជាមុននៅលើឧបករណ៍របស់អ្នកប៉ុណ្ណោះ។
+          ដើម្បីឱ្យអ្នកទស្សនាផ្សេងទៀតឃើញ សូមបង្ហោះរូបទៅក្នុង GitHub ផងដែរ។
+        </p>
+        <div id="imagePreview" class="image-preview" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-wrap section-block">
+      <div class="contact-panel">
+        <span class="eyebrow" data-i18n="contactEyebrow">LET'S TALK</span>
+        <h2 data-i18n="contactTitle">ត្រៀមចាប់ផ្ដើមហើយឬនៅ?</h2>
+        <p data-i18n="contactText">
+          ផ្ញើសារមកយើងតាម Telegram ដើម្បីពិភាក្សាអំពីសេវាកម្ម។
+        </p>
+        <a class="btn btn-primary" href="https://t.me/EkenZoshop"
+          target="_blank" rel="noopener noreferrer" data-i18n="contactBtn">
+          ទាក់ទងតាម Telegram
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#home">
+      <span class="brand-icon">EK</span>
+      <span>E-KENZO <span class="accent">STORE</span></span>
+    </a>
+    <p data-i18n="footerText">
+      ហាងសេវាកម្មរចនាឯករាជ្យ។ មិនមានទំនាក់ទំនង ឬការឧបត្ថម្ភពី Roblox Corporation ទេ។
+    </p>
+    <p>© <span id="year"></span> E-KENZO Store</p>
+  </footer>
+
+  <a class="telegram-float" href="https://t.me/EkenZoshop"
+    target="_blank" rel="noopener noreferrer"
+    aria-label="Contact E-KENZO Store on Telegram">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21.8 3.3 18.5 20c-.25 1.18-.92 1.47-1.87.92l-5.18-3.82-2.5 2.4c-.28.28-.51.51-1.04.51l.37-5.28 9.61-8.68c.42-.37-.09-.58-.65-.21L5.36 13.2.24 11.6c-1.11-.35-1.13-1.11.23-1.65L20.5 2.33c.92-.34 1.73.22 1.3.97Z"/>
+    </svg>
+  </a>
 </body>
-  </html>
-  
+              </html>
+    
