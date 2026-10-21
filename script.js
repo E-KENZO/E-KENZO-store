@@ -135,3 +135,105 @@ document.getElementById("continueRobux").addEventListener("click", () => {
   const message = `សួស្តី E-KENZO Store ខ្ញុំចង់បញ្ជាទិញ ${currentRobuxPackage.amount} Robux។ Username: ${username}។ តម្លៃដែលបង្ហាញ: ${currentRobuxPackage.price}។ សូមបញ្ជាក់តម្លៃ និងវិធីបង់ប្រាក់។`;
   window.open("https://t.me/EkenZoshop?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
 });
+(() => {
+  const slider = document.getElementById("kenzoSlider");
+  const track = document.getElementById("kenzoTrack");
+
+  if (!slider || !track) return;
+
+  const slides = [...track.querySelectorAll(".kenzo-slide")];
+  const dotsBox = document.getElementById("kenzoDots");
+  const prev = document.getElementById("kenzoPrev");
+  const next = document.getElementById("kenzoNext");
+
+  if (!slides.length) return;
+
+  let index = 0;
+  let timer;
+  let startX = 0;
+  let startY = 0;
+  let dragging = false;
+
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "kenzo-dot";
+    dot.setAttribute("aria-label", `Go to image ${i + 1}`);
+    dot.addEventListener("click", () => {
+      show(i);
+      restart();
+    });
+    dotsBox.appendChild(dot);
+    return dot;
+  });
+
+  function show(newIndex, animate = true) {
+    index = (newIndex + slides.length) % slides.length;
+
+    track.style.transition = animate
+      ? "transform .55s cubic-bezier(.22,.75,.25,1)"
+      : "none";
+
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+
+  function restart() {
+    clearInterval(timer);
+    if (slides.length > 1) {
+      timer = setInterval(() => show(index + 1), 4000);
+    }
+  }
+
+  prev.addEventListener("click", () => {
+    show(index - 1);
+    restart();
+  });
+
+  next.addEventListener("click", () => {
+    show(index + 1);
+    restart();
+  });
+
+  slider.addEventListener("pointerdown", event => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    startX = event.clientX;
+    startY = event.clientY;
+    dragging = true;
+    track.style.transition = "none";
+  });
+
+  slider.addEventListener("pointerup", event => {
+    if (!dragging) return;
+    dragging = false;
+
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+      show(index + (dx < 0 ? 1 : -1));
+      restart();
+    } else {
+      show(index);
+    }
+  });
+
+  function cancelDrag() {
+    if (!dragging) return;
+    dragging = false;
+    show(index);
+  }
+
+  slider.addEventListener("pointercancel", cancelDrag);
+  slider.addEventListener("lostpointercapture", cancelDrag);
+
+  slider.addEventListener("mouseenter", () => clearInterval(timer));
+  slider.addEventListener("mouseleave", restart);
+
+  show(0, false);
+  restart();
+})();
+      
