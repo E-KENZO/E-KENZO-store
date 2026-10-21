@@ -150,3 +150,15 @@
 @media (prefers-reduced-motion: reduce) {
   .kenzo-track { transition: none; }
            }
+.kenzo-slider {
+  position: relative;
+  width: calc(100% - 32px);
+  max-width: 700px;
+  height: clamp(220px, 48vw, 380px);
+  margin: 35px auto;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #071426;
+  border: 1px solid #20c9f355;
+  box-shadow: 0 12px 35px #0004;
+}
