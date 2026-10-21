@@ -32,3 +32,14 @@
 .popup-summary strong{color:var(--cyan)}
 @media(max-width:800px){.robux-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.robux-order{grid-template-columns:1fr}}
 @media(max-width:420px){.robux-grid{gap:10px}.robux-card{padding:18px 10px;min-height:175px}.robux-card strong{font-size:16px}}
+
+/* Home page: compact individual game tile, with room for future games */
+.games-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
+.game-tile{display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px 16px;min-width:0;text-align:center;text-decoration:none;color:var(--text);background:linear-gradient(155deg,#102943,#09192b);border:1px solid var(--border);border-radius:20px;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.game-tile:hover,.game-tile:focus-visible{transform:translateY(-4px);border-color:var(--cyan);box-shadow:0 0 24px #20c9f544;outline:none}
+.game-image-wrap{width:100%;max-width:132px;aspect-ratio:1;overflow:hidden;border-radius:18px;background:#3158f5;display:grid;place-items:center}
+.game-image-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.game-title{font-size:19px;font-weight:800}
+.game-description{font-size:13px;color:var(--muted);line-height:1.5}
+.game-action{margin-top:4px;color:var(--cyan);font-size:14px;font-weight:800}
+@media(max-width:600px){.games-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.game-tile{padding:12px 8px;border-radius:15px;gap:9px}.game-image-wrap{max-width:100%;border-radius:12px}.game-title{font-size:16px}.game-description{font-size:11px}.game-action{font-size:12px}}
