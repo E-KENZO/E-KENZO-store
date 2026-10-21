@@ -43,3 +43,110 @@
 .game-description{font-size:13px;color:var(--muted);line-height:1.5}
 .game-action{margin-top:4px;color:var(--cyan);font-size:14px;font-weight:800}
 @media(max-width:600px){.games-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.game-tile{padding:12px 8px;border-radius:15px;gap:9px}.game-image-wrap{max-width:100%;border-radius:12px}.game-title{font-size:16px}.game-description{font-size:11px}.game-action{font-size:12px}}
+/* E-KENZO Store Modern Slider */
+.kenzo-slider {
+  position: relative;
+  width: calc(100% - 32px);
+  max-width: 1100px;
+  height: clamp(220px, 48vw, 430px);
+  margin: 25px auto;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #071426;
+  border: 1px solid #20c9f355;
+  box-shadow: 0 12px 35px #0004;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.kenzo-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform .55s cubic-bezier(.22,.75,.25,1);
+  will-change: transform;
+}
+
+.kenzo-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.kenzo-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.kenzo-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  width: 43px;
+  height: 50px;
+  border: 1px solid #ffffff50;
+  border-radius: 13px;
+  background: #071426a8;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.kenzo-arrow:hover {
+  background: #22c9ed;
+  color: #071426;
+}
+
+.kenzo-prev { left: 12px; }
+.kenzo-next { right: 12px; }
+
+.kenzo-dots {
+  position: absolute;
+  z-index: 2;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.kenzo-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: #ffffff80;
+  cursor: pointer;
+  transition: width .25s, background .25s;
+}
+
+.kenzo-dot.active {
+  width: 27px;
+  background: #32d8f4;
+}
+
+@media (max-width: 600px) {
+  .kenzo-slider {
+    width: calc(100% - 24px);
+    border-radius: 17px;
+  }
+
+  .kenzo-arrow {
+    width: 35px;
+    height: 42px;
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kenzo-track { transition: none; }
+           }
