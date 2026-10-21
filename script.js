@@ -64,3 +64,74 @@ imageUpload.addEventListener("change", () => {
   });
 });
 window.addEventListener("beforeunload", () => objectUrls.forEach(URL.revokeObjectURL));
+
+
+// Robux package selection + demo username-check popup (API not connected yet).
+const robuxCards = document.querySelectorAll(".robux-card");
+const robuxOrder = document.getElementById("robuxOrder");
+const chosenRobux = document.getElementById("chosenRobux");
+const chosenPrice = document.getElementById("chosenPrice");
+const robloxUsernameForm = document.getElementById("robloxUsernameForm");
+const robloxUsername = document.getElementById("robloxUsername");
+const robuxPopup = document.getElementById("robuxPopup");
+const popupMessage = document.getElementById("popupMessage");
+const popupPackage = document.getElementById("popupPackage");
+const popupPrice = document.getElementById("popupPrice");
+let currentRobuxPackage = null;
+
+robuxCards.forEach(card => {
+  card.addEventListener("click", () => {
+    robuxCards.forEach(item => {
+      item.classList.remove("selected");
+      item.setAttribute("aria-pressed", "false");
+    });
+    card.classList.add("selected");
+    card.setAttribute("aria-pressed", "true");
+    currentRobuxPackage = {
+      amount: card.dataset.amount,
+      price: card.dataset.price
+    };
+    chosenRobux.textContent = Number(currentRobuxPackage.amount).toLocaleString() + " Robux";
+    chosenPrice.textContent = currentRobuxPackage.price;
+    robuxOrder.hidden = false;
+    robuxOrder.scrollIntoView({ behavior: "smooth", block: "center" });
+    robloxUsername.focus({ preventScroll: true });
+  });
+});
+
+function closeRobuxPopup() {
+  robuxPopup.hidden = true;
+}
+document.getElementById("closeRobuxPopup").addEventListener("click", closeRobuxPopup);
+robuxPopup.addEventListener("click", event => {
+  if (event.target === robuxPopup) closeRobuxPopup();
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeRobuxPopup();
+});
+
+robloxUsernameForm.addEventListener("submit", event => {
+  event.preventDefault();
+  const username = robloxUsername.value.trim();
+  if (!currentRobuxPackage) {
+    alert("សូមជ្រើសរើសកញ្ចប់ Robux ជាមុនសិន។");
+    return;
+  }
+  if (!/^[A-Za-z0-9_]{3,20}$/.test(username)) {
+    robloxUsername.setCustomValidity("Username ត្រូវមាន 3–20 តួអក្សរ និងប្រើតែអក្សរ លេខ ឬ _ ។");
+    robloxUsername.reportValidity();
+    robloxUsername.setCustomValidity("");
+    return;
+  }
+  popupPackage.textContent = Number(currentRobuxPackage.amount).toLocaleString() + " Robux";
+  popupPrice.textContent = currentRobuxPackage.price;
+  popupMessage.textContent = `បានទទួល Username "${username}"។ នៅពេលនេះ វេបសាយមិនទាន់បានឆែកថា Username នេះមាននៅលើ Roblox ពិតប្រាកដទេ។`;
+  robuxPopup.hidden = false;
+});
+
+document.getElementById("continueRobux").addEventListener("click", () => {
+  closeRobuxPopup();
+  const username = robloxUsername.value.trim();
+  const message = `សួស្តី E-KENZO Store ខ្ញុំចង់បញ្ជាទិញ ${currentRobuxPackage.amount} Robux។ Username: ${username}។ តម្លៃដែលបង្ហាញ: ${currentRobuxPackage.price}។ សូមបញ្ជាក់តម្លៃ និងវិធីបង់ប្រាក់។`;
+  window.open("https://t.me/EkenZoshop?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
+});
