@@ -135,3 +135,114 @@ document.getElementById("continueRobux").addEventListener("click", () => {
   const message = `សួស្តី E-KENZO Store ខ្ញុំចង់បញ្ជាទិញ ${currentRobuxPackage.amount} Robux។ Username: ${username}។ តម្លៃដែលបង្ហាញ: ${currentRobuxPackage.price}។ សូមបញ្ជាក់តម្លៃ និងវិធីបង់ប្រាក់។`;
   window.open("https://t.me/EkenZoshop?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
 });
+(() => {
+  const slider = document.getElementById("kenzoSlider");
+  const track = document.getElementById("kenzoTrack");
+  const dotsBox = document.getElementById("kenzoDots");
+  const prev = document.getElementById("kenzoPrev");
+  const next = document.getElementById("kenzoNext");
+
+  if (!slider || !track || !dotsBox) return;
+
+  const slides = Array.from(track.querySelectorAll(".kenzo-slide"));
+  if (slides.length < 2) return;
+
+  let index = 0;
+  let timer = null;
+  let startX = 0;
+  let startY = 0;
+  let pointerDown = false;
+
+  // បង្កើតចំណុចប្ដូររូបតែមួយសំណុំ
+  dotsBox.replaceChildren();
+
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "kenzo-dot";
+    dot.setAttribute("aria-label", `Banner ${i + 1}`);
+
+    dot.addEventListener("click", () => {
+      showSlide(i);
+      restartTimer();
+    });
+
+    dotsBox.appendChild(dot);
+    return dot;
+  });
+
+  function showSlide(newIndex, animate = true) {
+    index = (newIndex + slides.length) % slides.length;
+
+    track.style.transition = animate
+      ? "transform .45s ease"
+      : "none";
+
+    track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+      dot.setAttribute("aria-current", i === index ? "true" : "false");
+    });
+  }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      showSlide(index + 1);
+    }, 4000);
+  }
+
+  function restartTimer() {
+    startTimer();
+  }
+
+  prev?.addEventListener("click", () => {
+    showSlide(index - 1);
+    restartTimer();
+  });
+
+  next?.addEventListener("click", () => {
+    showSlide(index + 1);
+    restartTimer();
+  });
+
+  slider.addEventListener("pointerdown", event => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+
+    startX = event.clientX;
+    startY = event.clientY;
+    pointerDown = true;
+  });
+
+  slider.addEventListener("pointerup", event => {
+    if (!pointerDown) return;
+    pointerDown = false;
+
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+
+    if (Math.abs(dx) >= 40 && Math.abs(dx) > Math.abs(dy)) {
+      showSlide(index + (dx < 0 ? 1 : -1));
+      restartTimer();
+    }
+  });
+
+  function cancelPointer() {
+    pointerDown = false;
+  }
+
+  slider.addEventListener("pointercancel", cancelPointer);
+  slider.addEventListener("pointerleave", cancelPointer);
+
+  // កុំផ្អាក Auto-slide លើទូរស័ព្ទ
+  slider.addEventListener("mouseenter", () => {
+    clearInterval(timer);
+  });
+
+  slider.addEventListener("mouseleave", startTimer);
+
+  showSlide(0, false);
+  startTimer();
+})();
+    
