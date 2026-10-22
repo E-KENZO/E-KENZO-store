@@ -237,3 +237,84 @@ document.getElementById("continueRobux").addEventListener("click", () => {
   restart();
 })();
       
+(() => {
+  const slider = document.getElementById("kenzoSlider");
+  const track = document.getElementById("kenzoTrack");
+  const prev = document.getElementById("kenzoPrev");
+  const next = document.getElementById("kenzoNext");
+  const dotsBox = document.getElementById("kenzoDots");
+
+  if (!slider || !track || !dotsBox) return;
+
+  const slides = Array.from(track.querySelectorAll(".kenzo-slide"));
+  if (slides.length < 2) return;
+
+  let index = 0;
+  let timer;
+  let startX = 0;
+  let moved = false;
+
+  dotsBox.innerHTML = "";
+
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "kenzo-dot";
+    dot.setAttribute("aria-label", `Go to banner ${i + 1}`);
+    dot.addEventListener("click", () => showSlide(i));
+    dotsBox.appendChild(dot);
+    return dot;
+  });
+
+  function showSlide(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach((dot, n) => {
+      dot.classList.toggle("active", n === index);
+      dot.setAttribute("aria-current", n === index ? "true" : "false");
+    });
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(() => showSlide(index + 1), 4000);
+  }
+
+  function restartAuto() {
+    startAuto();
+  }
+
+  prev?.addEventListener("click", () => {
+    showSlide(index - 1);
+    restartAuto();
+  });
+
+  next?.addEventListener("click", () => {
+    showSlide(index + 1);
+    restartAuto();
+  });
+
+  slider.addEventListener("pointerdown", (e) => {
+    startX = e.clientX;
+    moved = false;
+  });
+
+  slider.addEventListener("pointerup", (e) => {
+    const distance = e.clientX - startX;
+    if (Math.abs(distance) > 45) {
+      moved = true;
+      showSlide(index + (distance < 0 ? 1 : -1));
+      restartAuto();
+    }
+  });
+
+  slider.addEventListener("mouseenter", () => clearInterval(timer));
+  slider.addEventListener("mouseleave", startAuto);
+  slider.addEventListener("touchstart", () => clearInterval(timer), { passive: true });
+  slider.addEventListener("touchend", startAuto, { passive: true });
+
+  showSlide(0);
+  startAuto();
+})();
+                    
