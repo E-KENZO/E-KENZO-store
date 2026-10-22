@@ -509,3 +509,121 @@ button {
   }
   }
     
+/* E-KENZO — Floating Telegram Online Button */
+.telegram-float {
+  position: fixed !important;
+  right: 16px;
+  bottom: 20px;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 16px;
+  border: 1px solid rgba(57, 229, 245, .45);
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #071b32, #103c60);
+  color: #fff;
+  text-decoration: none;
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .45),
+              0 0 18px rgba(57, 229, 245, .16);
+
+  animation: telegram-float-glow 2s ease-in-out infinite;
+}
+
+.telegram-float > svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  fill: #39c5f5;
+}
+
+.telegram-float-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.telegram-float-text strong {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.telegram-float-text small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #56f59a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.telegram-status-dot,
+.telegram-online-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22ef78;
+  box-shadow: 0 0 8px #22ef78;
+  animation: telegram-online-blink 1.1s infinite;
+}
+
+.telegram-online-dot {
+  width: 7px;
+  height: 7px;
+}
+
+@keyframes telegram-online-blink {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px #22ef78;
+  }
+  50% {
+    opacity: .25;
+    box-shadow: 0 0 2px #22ef78;
+  }
+}
+
+@keyframes telegram-float-glow {
+  0%, 100% {
+    box-shadow: 0 8px 28px rgba(0,0,0,.45),
+                0 0 12px rgba(57,229,245,.12);
+  }
+  50% {
+    box-shadow: 0 8px 28px rgba(0,0,0,.45),
+                0 0 22px rgba(57,229,245,.3);
+  }
+}
+
+.telegram-float:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 480px) {
+  .telegram-float {
+    right: 12px;
+    bottom: 14px;
+    padding: 10px 13px;
+    border-radius: 15px;
+  }
+
+  .telegram-float > svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .telegram-float,
+  .telegram-status-dot,
+  .telegram-online-dot {
+    animation: none;
+  }
+}
+
