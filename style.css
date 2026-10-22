@@ -211,3 +211,301 @@
 @media (prefers-reduced-motion: reduce) {
   .kenzo-track { transition: none; }
            }
+/* =========================================
+   E-KENZO STORE — PREMIUM GAMING THEME
+   Add this at the END of style.css
+========================================= */
+
+:root {
+  --bg: #050d1b;
+  --panel: #0a192d;
+  --card: #0e2038;
+  --text: #f4f9ff;
+  --muted: #a9bdd4;
+  --blue: #2588ff;
+  --cyan: #39e5f5;
+  --border: rgba(95, 193, 255, 0.18);
+  --gradient: linear-gradient(120deg, #1675f9, #31dff0);
+}
+
+/* Global polish */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(20, 102, 190, 0.16), transparent 35%),
+    radial-gradient(ellipse at 95% 35%, rgba(20, 209, 235, 0.07), transparent 30%),
+    var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: rgba(49, 223, 240, 0.3);
+  color: #fff;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Premium sticky header */
+.site-header {
+  background: rgba(4, 13, 27, 0.88);
+  border-bottom: 1px solid rgba(57, 229, 245, 0.16);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.brand {
+  transition: opacity 0.2s ease;
+}
+
+.brand:hover {
+  opacity: 0.88;
+}
+
+.brand-icon {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 20px rgba(39, 136, 255, 0.2);
+}
+
+.brand-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.nav-menu a {
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+  color: var(--cyan);
+}
+
+/* Buttons */
+.btn {
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  box-shadow: 0 6px 22px rgba(39, 136, 255, 0.2);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 28px rgba(49, 217, 245, 0.25);
+}
+
+.language-btn,
+.menu-btn {
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.language-btn:hover,
+.menu-btn:hover {
+  border-color: var(--cyan);
+  background: #122b47;
+}
+
+/* Premium image slider */
+.kenzo-slider {
+  border: 1px solid rgba(57, 229, 245, 0.28);
+  border-radius: 24px;
+  background: #071426;
+  box-shadow:
+    0 16px 42px rgba(0, 0, 0, 0.28),
+    0 0 24px rgba(39, 136, 255, 0.08);
+}
+
+.kenzo-slide img {
+  display: block;
+}
+
+.kenzo-arrow {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(4, 13, 27, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.kenzo-arrow:focus-visible,
+.kenzo-dot:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* Section headings */
+.section-heading h2,
+.contact-panel h2 {
+  letter-spacing: -0.4px;
+}
+
+.section-heading p {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  letter-spacing: 1.5px;
+}
+
+/* Premium game cards */
+.game-tile {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(19, 47, 76, 0.96), rgba(7, 20, 38, 0.98));
+  border-color: rgba(95, 193, 255, 0.17);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease;
+}
+
+.game-tile:hover,
+.game-tile:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(57, 229, 245, 0.65);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.22),
+    0 0 24px rgba(49, 217, 245, 0.1);
+}
+
+.game-image-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.game-title {
+  letter-spacing: 0.2px;
+}
+
+.game-action {
+  transition: color 0.2s ease;
+}
+
+.game-tile:hover .game-action {
+  color: #8df5ff;
+}
+
+/* Contact panel */
+.contact-panel {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(57, 229, 245, 0.22);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(27, 103, 169, 0.26), transparent 65%),
+    linear-gradient(145deg, #0d2039, #071426);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+}
+
+.contact-panel .btn {
+  box-shadow: 0 8px 24px rgba(39, 136, 255, 0.22);
+}
+
+/* Telegram floating button */
+.telegram-float {
+  z-index: 9999;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #229ed9, #167ac6);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.telegram-float:hover,
+.telegram-float:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(34, 158, 217, 0.3);
+}
+
+/* Footer */
+.site-footer {
+  border-top-color: rgba(57, 229, 245, 0.14);
+  background: #030a15;
+}
+
+.site-footer strong {
+  letter-spacing: 1.2px;
+}
+
+/* Robux cards: matching theme */
+.robux-card {
+  border-color: rgba(95, 193, 255, 0.18);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.robux-card:hover {
+  border-color: rgba(57, 229, 245, 0.6);
+}
+
+.robux-card.selected {
+  border-color: var(--cyan);
+  box-shadow:
+    0 0 0 3px rgba(57, 229, 245, 0.1),
+    0 0 28px rgba(39, 136, 255, 0.18);
+}
+
+/* Mobile refinements */
+@media (max-width: 800px) {
+  .site-header {
+    gap: 10px;
+  }
+
+  .nav-menu.open {
+    background: rgba(4, 13, 27, 0.97);
+  }
+
+  .game-tile:hover,
+  .game-tile:focus-visible {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .kenzo-slider {
+    border-radius: 17px;
+  }
+
+  .contact-panel {
+    padding: 32px 18px;
+  }
+
+  .telegram-float {
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .game-tile,
+  .btn,
+  .telegram-float,
+  .nav-menu a {
+    transition: none;
+  }
+
+  .game-tile:hover,
+  .game-tile:focus-visible,
+  .telegram-float:hover,
+  .telegram-float:focus-visible {
+    transform: none;
+  }
+  }
+    
